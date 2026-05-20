@@ -1,0 +1,50 @@
+name: Update README cards
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Generate stats card
+        uses: readme-tools/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&theme=default&hide_border=true
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages card
+        uses: readme-tools/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&theme=default&hide_border=true&langs_count=6
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download streak card
+        run: curl -fsSL --retry 3 --retry-delay 5 "https://streak-stats.demolab.com?user=${{ github.repository_owner }}&theme=default&hide_border=true" -o profile/streak.svg
+
+      - name: Download profile views badge
+        run: curl -fsSL --retry 3 --retry-delay 5 "https://komarev.com/ghpvc/?username=${{ github.repository_owner }}&color=blue&style=flat" -o profile/views.svg
+
+      - name: Update conditional README sections
+        run: node .github/scripts/update-readme.js
+
+      - name: Commit generated cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md profile/*.svg
+          git commit -m "Update README cards" || exit 0
+          git push

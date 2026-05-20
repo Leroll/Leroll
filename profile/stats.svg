@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub Stats Placeholder</title>
+  <desc id="desc">GitHub Actions will generate this stats card after the first workflow run.</desc>
+  <rect width="495" height="195" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="24" y="44" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#24292f">GitHub Stats</text>
+  <text x="24" y="86" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#57606a">This card is now generated in GitHub Actions.</text>
+  <text x="24" y="112" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#57606a">Run the "Update README cards" workflow once to replace this placeholder.</text>
+  <text x="24" y="154" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#6e7781">Scheduled refresh: daily at 03:00 UTC</text>
+</svg>
