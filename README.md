@@ -33,8 +33,10 @@
 
 <!-- Auto-managed block: do not edit content between START and END markers. -->
 <!-- README:VIEWS:START -->
+<!--
 <p align="left">
   <img src="./profile/views.svg" alt="Profile Views" />
 </p>
+-->
 <!-- README:VIEWS:END -->
 <!-- 主页浏览数量 -->
